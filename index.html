@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Estimate what renewal leakage and manual CSR work are costing your independent agency — Cassian Renewal Retention ROI Calculator."
+    />
+    <title>Cassian — Renewal Retention ROI Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,650&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="site-header">
+        <a class="brand" href="#">
+          <img id="brand-logo" class="brand-logo" alt="" />
+          <span id="brand-wordmark" class="brand-wordmark" data-brand-name>Cassian</span>
+        </a>
+        <p class="header-meta">Renewal Retention ROI</p>
+      </header>
+
+      <section class="hero" aria-labelledby="hero-brand">
+        <p id="hero-brand" class="hero-brand-signal" data-brand-name>Cassian</p>
+        <h1>How much is poor renewal retention costing your agency?</h1>
+        <p class="hero-support">
+          Plug in numbers you already know from your AMS. In under two minutes,
+          see the revenue walking out the door — and what a focused automation
+          build can recover.
+        </p>
+        <div class="credibility" aria-label="Industry context">
+          <span><strong>56%</strong> of principals cite carrier commitment as #1 challenge</span>
+          <span><strong>$750K–$2.5M</strong> agency band this model is built for</span>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="form-heading">
+        <div class="panel-inner">
+          <h2 id="form-heading" class="panel-title">Your agency numbers</h2>
+          <p class="panel-sub">
+            Answer off the top of your head or from a single HawkSoft report. Defaults
+            use typical personal-lines figures.
+          </p>
+
+          <form id="roi-form" novalidate>
+            <div class="field-grid">
+              <div class="field">
+                <label for="input-pif">Policies in force (PIF)</label>
+                <input
+                  id="input-pif"
+                  name="pif"
+                  type="number"
+                  inputmode="numeric"
+                  min="1"
+                  step="1"
+                  placeholder="e.g. 1800"
+                  required
+                />
+                <span class="hint">HawkSoft dashboard</span>
+              </div>
+
+              <div class="field">
+                <label for="input-premium">Average annual premium per policy ($)</label>
+                <input
+                  id="input-premium"
+                  name="premium"
+                  type="number"
+                  inputmode="decimal"
+                  min="1"
+                  step="1"
+                  placeholder="e.g. 1850"
+                  required
+                />
+                <span class="hint">Mental math or Producer Report</span>
+              </div>
+
+              <div class="field">
+                <label for="input-retention">Current renewal retention rate (%)</label>
+                <input
+                  id="input-retention"
+                  name="retention"
+                  type="number"
+                  inputmode="decimal"
+                  min="0"
+                  max="100"
+                  step="0.1"
+                  placeholder="e.g. 84"
+                  required
+                />
+                <span class="hint">HawkSoft retention report</span>
+              </div>
+
+              <div class="field">
+                <label for="input-commission">Average agency commission rate (%)</label>
+                <input
+                  id="input-commission"
+                  name="commission"
+                  type="number"
+                  inputmode="decimal"
+                  min="0.1"
+                  max="100"
+                  step="0.1"
+                  required
+                />
+                <span class="hint">Personal lines typically 12–15%</span>
+              </div>
+
+              <div class="field">
+                <label for="input-csr-count">CSRs handling renewals</label>
+                <input
+                  id="input-csr-count"
+                  name="csrCount"
+                  type="number"
+                  inputmode="numeric"
+                  min="0"
+                  step="1"
+                  placeholder="e.g. 3"
+                  required
+                />
+                <span class="hint">Headcount on renewal work</span>
+              </div>
+
+              <div class="field">
+                <label for="input-csr-hourly">Fully-loaded CSR hourly cost ($)</label>
+                <input
+                  id="input-csr-hourly"
+                  name="csrHourly"
+                  type="number"
+                  inputmode="decimal"
+                  min="1"
+                  step="0.5"
+                  required
+                />
+                <span class="hint">Salary + burden; $22–$30/hr typical</span>
+              </div>
+
+              <div class="field field-full">
+                <label for="input-csr-hours">CSR hours/week spent on renewal tasks</label>
+                <input
+                  id="input-csr-hours"
+                  name="csrHours"
+                  type="number"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.5"
+                  placeholder="e.g. 12"
+                  required
+                />
+                <span class="hint"
+                  >Follow-up, data entry, and re-quoting — not client conversations</span
+                >
+              </div>
+            </div>
+
+            <button
+              type="button"
+              id="advanced-toggle"
+              class="advanced-toggle"
+              aria-expanded="false"
+              aria-controls="advanced-fields"
+            >
+              Show advanced inputs (optional)
+            </button>
+
+            <div id="advanced-fields" class="advanced-fields field-grid">
+              <div class="field">
+                <label for="input-cross-sell">Current cross-sell rate on renewals (%)</label>
+                <input
+                  id="input-cross-sell"
+                  name="crossSell"
+                  type="number"
+                  inputmode="decimal"
+                  min="0"
+                  max="100"
+                  step="0.1"
+                  placeholder="Optional"
+                />
+                <span class="hint">For Audit upsell modeling</span>
+              </div>
+              <div class="field">
+                <label for="input-policies-hh">Average policies per household</label>
+                <input
+                  id="input-policies-hh"
+                  name="policiesHh"
+                  type="number"
+                  inputmode="decimal"
+                  min="1"
+                  step="0.1"
+                  placeholder="Optional"
+                />
+                <span class="hint">Account-rounding context</span>
+              </div>
+            </div>
+
+            <p id="form-error" class="gate-error" role="alert"></p>
+
+            <div class="form-actions btn-sticky-wrap">
+              <button type="submit" class="btn btn-primary">Calculate My ROI</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section id="results" class="results" aria-live="polite">
+        <!-- Zone 1: Headline -->
+        <div class="zone">
+          <p class="zone-label">Cost of inaction</p>
+          <p id="headline-amount" class="headline-number">$0</p>
+          <p id="headline-copy" class="headline-copy"></p>
+        </div>
+
+        <!-- Zone 2: Breakdown -->
+        <div class="zone">
+          <p class="zone-label">Where the money goes</p>
+          <ul class="breakdown-list">
+            <li class="breakdown-item">
+              <div class="breakdown-row">
+                <span>Revenue walking out the door</span>
+                <span id="bd-revenue" class="amount">$0</span>
+              </div>
+              <div class="bar-track" aria-hidden="true">
+                <div id="bar-revenue" class="bar-fill"></div>
+              </div>
+            </li>
+            <li class="breakdown-item">
+              <div class="breakdown-row">
+                <span>CSR time burned on manual work</span>
+                <span id="bd-labor" class="amount">$0</span>
+              </div>
+              <div class="bar-track" aria-hidden="true">
+                <div id="bar-labor" class="bar-fill labor"></div>
+              </div>
+            </li>
+            <li class="breakdown-item is-total">
+              <div class="breakdown-row">
+                <span>Total annual cost</span>
+                <span id="bd-total" class="amount">$0</span>
+              </div>
+              <div class="bar-track" aria-hidden="true">
+                <div id="bar-total" class="bar-fill total"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Email gate -->
+        <div id="email-gate" class="zone gate">
+          <p class="zone-label">Full report</p>
+          <p>
+            Enter your email for the full report with Current vs With
+            <span data-brand-name>Cassian</span> projections, payback math, and a PDF
+            you can share with your ops manager or partners.
+          </p>
+          <form id="gate-form" class="gate-form" novalidate>
+            <div class="field">
+              <label for="gate-name">Name</label>
+              <input id="gate-name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="gate-email">Work email</label>
+              <input
+                id="gate-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <p id="gate-error" class="gate-error" role="alert"></p>
+            <button type="submit" class="btn btn-accent">Unlock Full Report</button>
+          </form>
+        </div>
+
+        <!-- Zones 3–4: unlocked after gate -->
+        <div id="full-results" class="full-results">
+          <div class="zone">
+            <p class="zone-label">Current state vs with <span data-brand-name>Cassian</span></p>
+            <div style="overflow-x: auto">
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Metric</th>
+                    <th scope="col">Current</th>
+                    <th scope="col" data-brand-with>With Cassian</th>
+                    <th scope="col">Delta</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="metric">Retention rate</td>
+                    <td id="cmp-retention-current">—</td>
+                    <td id="cmp-retention-projected">—</td>
+                    <td id="cmp-retention-delta">—</td>
+                  </tr>
+                  <tr>
+                    <td class="metric">Revenue lost to non-renewal</td>
+                    <td id="cmp-revenue-current">—</td>
+                    <td id="cmp-revenue-projected">—</td>
+                    <td id="cmp-revenue-delta">—</td>
+                  </tr>
+                  <tr>
+                    <td class="metric">CSR labor on renewals</td>
+                    <td id="cmp-labor-current">—</td>
+                    <td id="cmp-labor-projected">—</td>
+                    <td id="cmp-labor-delta">—</td>
+                  </tr>
+                  <tr class="delta-row">
+                    <td class="metric">Annual savings</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td id="cmp-savings-delta">—</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="metrics-row">
+              <div class="metric-block">
+                <span id="payback-label" class="label">Payback on engagement</span>
+                <span id="metric-payback" class="value">—</span>
+              </div>
+              <div class="metric-block">
+                <span class="label">Annual savings</span>
+                <span id="metric-annual-savings" class="value">—</span>
+              </div>
+              <div class="metric-block">
+                <span class="label">3-year cumulative</span>
+                <span id="metric-three-year" class="value">—</span>
+              </div>
+            </div>
+
+            <p id="advanced-note" class="assumptions" hidden></p>
+            <p id="assumptions-text" class="assumptions"></p>
+          </div>
+
+          <div class="zone">
+            <p class="zone-label">The bridge</p>
+            <p class="bridge-copy">
+              A <strong id="audit-cost-display">$3,000</strong> Audit confirms these
+              numbers against your actual workflows and HawkSoft configuration. Most
+              agencies recover the Audit cost within the first 3 months of
+              implementation.
+            </p>
+            <div class="cta-row">
+              <a id="cta-calendly" class="btn btn-primary" href="#BOOK_DISCOVERY_CALL"
+                >Book a Discovery Call</a
+              >
+              <button type="button" id="cta-pdf" class="btn btn-secondary">
+                Download This Report
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <p>
+          <span data-brand-name>Cassian</span> builds renewal retention automations
+          inside HawkSoft for independent personal-lines agencies.
+          Questions?
+          <a data-contact-email href="mailto:YOU@YOURDOMAIN.com">YOU@YOURDOMAIN.com</a>
+        </p>
+        <p style="margin-top: 0.5rem">
+          Estimates are directional. The Audit replaces projections with findings from
+          your book and workflows.
+        </p>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
+    <script src="assets/pdf-export.js"></script>
+    <script src="assets/calculator.js"></script>
+  </body>
+</html>
