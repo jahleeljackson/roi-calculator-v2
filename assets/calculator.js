@@ -30,10 +30,10 @@ const CONFIG = {
   leadWebhookSecret: "",
 
   // --- Pricing (design PDF) ---
-  engagementCost: 24000, // Audit $3K + Build $15K
-  auditCost: 5000,
-  buildCost: 20000,
-  annualRetainer: 3000,
+  engagementCost: 17500, // Audit $3K + Build $15K
+  auditCost: 2500,
+  buildCost: 15000,
+  annualRetainer: 30000,
 
   // --- Projection assumptions (conservative) ---
   assumptions: {
