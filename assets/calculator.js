@@ -31,9 +31,9 @@ const CONFIG = {
 
   // --- Pricing (design PDF) ---
   engagementCost: 24000, // Audit $3K + Build $15K
-  auditCost: 4000,
+  auditCost: 5000,
   buildCost: 20000,
-  annualRetainer: 9000,
+  annualRetainer: 3000,
 
   // --- Projection assumptions (conservative) ---
   assumptions: {

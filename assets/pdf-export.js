@@ -162,7 +162,7 @@
     doc.setFont("helvetica", "bold");
     doc.setFontSize(11);
     doc.setTextColor(navy);
-    doc.text("CURRENT STATE VS WITH " + (config.brandName || "CASSIAN").toUpperCase(), margin, y);
+    doc.text("CURRENT STATE VS WITH " + (config.brandName || "PROJECTED IMPROVEMENTS").toUpperCase(), margin, y);
     y += 16;
 
     const colX = [margin, 260, 370, pageW - margin];
